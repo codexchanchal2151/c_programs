@@ -1,29 +1,15 @@
-#include <stdio.h>
-#include <math.h>
+num = int(input("Enter an integer: "))
+original_num = num
+n = len(str(num))
+result = 0
 
-int main() {
-    int num, originalNum, remainder, n = 0;
-    double result = 0.0;
+temp = num
+while temp > 0:
+    remainder = temp % 10
+    result += remainder ** n
+    temp //= 10
 
-    printf("Enter an integer: ");
-    scanf("%d", &num);
-
-    originalNum = num;
-
-    // Find the number of digits
-    for (int temp = num; temp != 0; temp /= 10) {
-        ++n;
-    }
-
-    for (int temp = num; temp != 0; temp /= 10) {
-        remainder = temp % 10;
-        result += pow(remainder, n);
-    }
-
-    if ((int)result == originalNum)
-        printf("%d is an Armstrong number.\n", originalNum);
-    else
-        printf("%d is not an Armstrong number.\n", originalNum);
-
-    return 0;
-}
+if result == original_num:
+    print(f"{original_num} is an Armstrong number.")
+else:
+    print(f"{original_num} is not an Armstrong number.")
