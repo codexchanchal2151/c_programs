@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main() {
+    float units, bill = 0.0f;
+
+    printf("Enter total electricity units consumed: ");
+    if (scanf("%f", &units) != 1 || units < 0) {
+        printf("Invalid input! Units cannot be negative.\n");
+        return 1;
+    }
+
+    if (units <= 100) {
+        bill = units * 1.50f;
+    } else if (units <= 200) {
+        bill = (100 * 1.50f) + ((units - 100) * 2.50f);
+    } else if (units <= 300) {
+        bill = (100 * 1.50f) + (100 * 2.50f) + ((units - 200) * 4.00f);
+    } else {
+        bill = (100 * 1.50f) + (100 * 2.50f) + (100 * 4.00f) + ((units - 300) * 6.00f);
+    }
+
+    printf("Total Electricity Bill: Rs. %.2f\n", bill);
+    return 0;
+}
